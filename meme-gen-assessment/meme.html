@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="memes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body class="background">
+    <div class="memeMaker">
+    <h1>Meme Generator!</h1>
+    <form id="memeForm" action="">
+        <p>
+            <label for="imageInput">Paste image url here:
+                <input id="imageInput" type="text">
+            </label>
+        </p>
+        <p>
+            <label for="topText">What should the top text be?
+                <input id="topText" type="text">
+            </label>
+        </p>
+        <p>
+            <label for="bottomText">And the bottom text?
+                <input id="bottomText" type="text">
+            </label>
+            <br> <br>
+            <button id="memeButton">Create Meme!</button>
+            <button>Reset</button>
+            <button id="giveMeme">FREE MEMES</button>
+        </p>
+    </form>
+    </div>
+    <div class="container">
+
+    </div>
+
+    <script src="memes.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+.container {
+    position: relative;
+    /* text-align: center; */
+    font-family: Bebas Neue, cursive;
+    font-size: 3rem;
+    color: white;
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 3%;
+    left: 1%;
+    margin: 0%;
+    max-width: 27%;
+  }
+  
+  .top {
+    position: absolute;
+    top: 0;
+    left: 1%;
+    margin: 0%;
+    max-width: 27%;
+  }
+
+
+
+  .memeImage {
+      width: 400px;
+      height: 400px;
+  }
+
+  .background {
+      background-image: url('https://images4.alphacoders.com/236/thumb-1920-236784.jpg');
+      background-size: cover;
+  }
+
+  .memeMaker {
+      background-color: cadetblue;
+      width: 25%;
+      border: 3px solid black;
+      border-radius: 8px;
+      padding: 8px;
+  }
+
+  .freeMemes {
+      max-width: 300px;
+      max-height: 300px;
+      border: 2px solid black;
+      margin: 5px;
+  }
+
+button:hover {
+    cursor: pointer;
+}
