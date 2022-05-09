@@ -1,0 +1,19 @@
+/* some colors you may find useful:
+  #115ff4
+  #060ce9
+  #28a200
+  #8d2ab5
+  #74119c */
+#jeopardy th, #jeopardy td {
+  border: 1px solid white;
+  padding: 40px;
+}
+
+#jeopardy  {
+  background-color: #115ff4;
+  color: white;
+}
+
+#jeopardy tbody tr td:hover {
+  cursor: pointer;
+}
