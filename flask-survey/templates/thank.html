@@ -7,7 +7,7 @@
 <p>for taking this survey, enjoy your day!</p>
 
 <ol>
-    {% for response in responses %}
+    {% for response in session['responses'] %}
     <li>{{response}}</li>
     {% endfor %}
 </ol>

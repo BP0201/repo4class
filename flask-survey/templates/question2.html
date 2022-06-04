@@ -3,9 +3,7 @@
 {% block title %} Question 3 {% endblock %}
 
 {% block content %} 
-{% for message in get_flashed_messages() %}
-        <div>{{message}}</div>
-{% endfor %}
+
 <h3>{{question}}</h3>
 <form action="/answers" method="POST">
     {% for choice in choices %}

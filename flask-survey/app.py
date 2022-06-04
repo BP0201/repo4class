@@ -1,6 +1,6 @@
 from crypt import methods
 from urllib import response
-from flask import Flask, request, render_template, redirect, flash
+from flask import Flask, request, render_template, redirect, flash, session
 from importlib_metadata import method_cache
 from flask_debugtoolbar import DebugToolbarExtension
 
@@ -11,12 +11,12 @@ app.config['SECRET_KEY'] = "chickens"
 debug = DebugToolbarExtension(app)
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
-responses = []
+# responses = []
 
 
 @app.route('/')
 def show_home_page():
-    return render_template('home.html', survey=satisfaction_survey, instructions=satisfaction_survey.instructions)
+    return render_template('home.html', survey=satisfaction_survey)
 
 # @app.route('/questions/0')
 # def show_question_0():
@@ -36,22 +36,28 @@ def show_home_page():
 
 @app.route('/questions/<int:num>')
 def show_question(num):
+    responses = session.get('responses')
     if num == len(responses):
-        return render_template(f'/question{num}.html', question=satisfaction_survey.questions[num].question, choices=satisfaction_survey.questions[num].choices)
+        return render_template(f'question{num}.html', question=satisfaction_survey.questions[num].question, choices=satisfaction_survey.questions[num].choices)
 
     elif len(responses) == 0:
         return redirect('/questions/1')
 
     else:
         flash('Invalid Question Number.')
-        return render_template(f'/question{len(responses)}.html', question=satisfaction_survey.questions[len(responses)].question, choices=satisfaction_survey.questions[len(responses)].choices)
+        return render_template(f'question{len(responses)}.html', question=satisfaction_survey.questions[len(responses)].question, choices=satisfaction_survey.questions[len(responses)].choices)
+
+
     
     
 
 @app.route('/answers', methods=["POST"])
 def add_answer():
     answer = request.form["answer"]
+    responses = session['responses']
     responses.append(answer)
+    session['responses'] = responses
+    
     if len(responses) >= len(satisfaction_survey.questions):
         return redirect('/thank')
 
@@ -61,4 +67,12 @@ def add_answer():
 
 @app.route('/thank')
 def show_thank_page():
-    return render_template('thank.html', responses=responses)
+    return render_template('thank.html')
+
+
+@app.route('/handle-session', methods=["POST"])
+def handle_session():
+    session['responses'] = []
+    return redirect('/question/0')
+
+
