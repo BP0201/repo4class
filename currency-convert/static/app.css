@@ -1,0 +1,31 @@
+input {
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+    padding: 8px;
+    color: White;
+    background-color: rgb(49, 101, 255);
+    border-radius: 8px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(19, 61, 255);
+}
+
+.error {
+    background-color: rgb(220, 90, 69);
+    color: white;
+}
+
+.success {
+    background-color: rgb(87, 240, 110);
+}
+
+p {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 2rem;
+}
