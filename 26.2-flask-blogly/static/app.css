@@ -1,0 +1,13 @@
+img {
+    width: 400px;
+    height: 400px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button {
+    border-radius: 5px;
+    padding: 5px;
+}
