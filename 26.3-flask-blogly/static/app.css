@@ -1,0 +1,27 @@
+img {
+    width: 200px;
+    height: 200px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+span {
+    background-color: dodgerblue;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px;
+    border: 1px solid black;
+    color: white;
+}
+
+input {
+    margin: 10px;
+}

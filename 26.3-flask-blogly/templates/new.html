@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}  Create User  {% endblock %}
+
+{% block content %}
+
+<h1>Create User</h1>
+
+<form action="/users/new" method="POST">
+    First Name <br>
+    <input type="text" name="first_name" placeholder="Enter a first name"> <br>
+    Last Name <br>
+    <input type="text" name="last_name" placeholder="Enter a last name"> <br>
+    Image URL <br>
+    <input type="text" name="image_url" placeholder="Enter a image url"> <br>
+    <button>Add</button>
+</form>
+
+{% endblock %}
