@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+
+
+{% block content %}
+<h1>Cupcake Flavors</h1>
+<ul id="cupcakeList">
+    {% for cupcake in cupcakes %}
+    <li>{{cupcake.flavor}}</li>
+    {% endfor %}
+</ul>
+
+<form id="addForm">
+<input type="text" id="flavor" placeholder="Flavor">
+<input type="text" id="size" placeholder="Size">
+<input type="text" id="rating" placeholder="Rating">
+<input type="text" id="image" placeholder="Image URL">
+<button id="addButton">Add Cupcake!</button>
+</form>
+
+{% endblock %}
