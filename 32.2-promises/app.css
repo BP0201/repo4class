@@ -1,0 +1,15 @@
+body {
+    background-color: green;
+}
+
+button {
+    padding: 10px;
+    display: block;
+    
+}
+
+
+button:hover {
+    cursor: pointer;
+    background-color: #bbb;
+}
