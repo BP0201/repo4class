@@ -1,0 +1,14 @@
+{
+  "name": "33.1-ex",
+  "version": "1.0.0",
+  "description": "exercise for unit 33.1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ben",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
