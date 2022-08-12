@@ -2,11 +2,12 @@ const express = require("express");
 const ExpressError = require("../expressError")
 const router = express.Router();
 const db = require("../db");
+const slugify = require("slugify")
 
 router.get('/', async (req, res, next) => {
     try {
         const results = await db.query(`SELECT * FROM companies`)
-        return res.json({ companies: [results.rows] })
+        return res.json({ companies: results.rows })
     } catch (e) {
         return next(e)
     }
@@ -14,22 +15,28 @@ router.get('/', async (req, res, next) => {
 router.get('/:code', async (req, res, next) => {
     try {
         const { code } = req.params
-        const results = await db.query(`SELECT 
-        code, name, description, id AS invoice_id,
-        amt, paid, add_date, paid_date FROM companies JOIN invoices ON code = invoices.comp_code WHERE code = $1`, [code])
-        if (results.rows.length === 0) {
+        const compResults = await db.query(`SELECT 
+        code, name, description FROM companies WHERE code = $1`, [code])
+        const invoiceResults = await db.query(`SELECT id FROM invoices WHERE comp_code = $1`, [code])
+        if (compResults.rows.length === 0) {
             throw new ExpressError(`Couldn't find company with code: ${code}`, 404)
         }
-        return res.send({ company: results.rows[0] })
+        // const { compCode, name, description } = compResults.rows[0]
+        // const industries = results.rows.map(r => r.industry)
+        const companyRes = compResults.rows[0]
+        const invoices = invoiceResults.rows
+        companyRes.invoices = invoices.map(inv => inv.id)
+        return res.send({ company: companyRes })
     } catch (e) {
         return next(e)
     }
 })
 router.post('/', async (req, res, next) => {
     try {
-        const { code, name, description } = req.body
+        const { name, description } = req.body
+        const code = slugify(name, {lower: true})
         const results = await db.query(`INSERT INTO companies (code, name, description) VALUES ($1, $2, $3) RETURNING *`, [code, name, description])
-        return res.status(201).json({ company: [results.rows] })
+        return res.status(201).json({ company: results.rows })
     } catch (e) {
         return next(e)
     }
