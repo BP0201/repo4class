@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditForm should match the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="EditForm"
+  >
+    <div
+      class="container col-md-6 offset-md-3 col-lg-4 offset-lg-4"
+    >
+      <h2
+        class="my-4"
+      >
+        Edit Profile
+      </h2>
+      <div
+        class="card shadow"
+      >
+        <div
+          class="card-body"
+        >
+          <form>
+            <div
+              class="form-group"
+            >
+              <label
+                for="password"
+              >
+                New Password
+              </label>
+              <input
+                autocomplete="current-password"
+                class="form-control"
+                id="password"
+                name="password"
+                required=""
+                type="password"
+                value=""
+              />
+            </div>
+            <button
+              class="btn btn-success float-right"
+              data-testid="edit-form-btn"
+            >
+              Update
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
